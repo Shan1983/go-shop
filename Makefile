@@ -11,7 +11,7 @@ docker-container-list:
 	docker container ls
 
 docker-up:
-	docker-compose up --build
+	docker-compose up --build server
 
 
 docker: docker-container-stop docker-build docker-run docker-container-list

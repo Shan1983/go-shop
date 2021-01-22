@@ -20,6 +20,7 @@ func main() {
 }
 
 func helloServer(w http.ResponseWriter, r *http.Request) {
+	logrus.WithField("hi2", "hello2").Info("hello")
 	w.Write([]byte("hello world!"))
 }
 

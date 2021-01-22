@@ -1,0 +1,16 @@
+version: "3"
+services: 
+  server:
+    build: .
+    links:
+      - db:db
+    ports:
+     - 8088:8088
+    environment: 
+      DATA_DIRECTORY: "/build/go-shop/cmd/app/"
+  db:
+    image: postgres:10.5-alpine
+    ports:
+      - 5432:5432
+    environment: 
+      POSTGRES_PASSWORD: password

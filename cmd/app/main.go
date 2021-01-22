@@ -3,8 +3,6 @@ package main
 import (
 	"log"
 	"net/http"
-
-	"github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -20,14 +18,13 @@ func main() {
 }
 
 func helloServer(w http.ResponseWriter, r *http.Request) {
-	logrus.WithField("hi2", "hello2").Info("hello")
-	w.Write([]byte("hello world!"))
+	w.Write([]byte("hello world!!"))
 }
 
 func mw(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
-		logrus.WithField("hi", "hello").Info("hello")
+		log.Printf("%s %s %s", r.Host, r.Proto, r.URL)
 
 		next.ServeHTTP(w, r)
 	})

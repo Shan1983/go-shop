@@ -13,7 +13,14 @@ docker-container-list:
 docker-up:
 	docker-compose up --build server
 
+docker-compose-build:
+	docker-compose build --no-cache
 
-docker: docker-container-stop docker-build docker-run docker-container-list
+docker-rm:
+	docker-compose rm -f
+	
+
+
+docker: docker-compose-build docker-up
 
 .PHONEY: docker-build docker-run docker-up docker-compose docker

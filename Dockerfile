@@ -12,4 +12,4 @@ RUN cd /build/go-shop/cmd/app && go build
 
 EXPOSE 8080
 
-ENTRYPOINT [ "/build/go-shop/cmd/app/main" ]
+ENTRYPOINT [ "/build/go-shop/cmd/app/" ]

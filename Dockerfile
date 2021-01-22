@@ -6,3 +6,10 @@ WORKDIR /build
 
 RUN export GO111MODULE=on
 RUN go get github.com/Shan1983/go-shop
+RUN cd /build  && git clone https://github.com/Shan1983/go-shop.git
+
+RUN cd /build/go-shop/cmd/app && go build
+
+EXPOSE 8080
+
+ENTRYPOINT [ "/build/go-shop/cmd/app/main" ]
